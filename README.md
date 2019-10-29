@@ -1,10 +1,10 @@
 # Open-street-map-
 Rapport sur le projet OpenStreetMap
 Nous allons d’abors vous presenter le doc de notre programme.
-Ps: Lancer le mode tuareg puis evaluer le buffering et observer le
-resultat.
-(* c’est notre type de base nous permettant de manipler le type xml en
-Ocmal*)
+Ps: Lancer le mode tuareg puis evaluer le buffering et observer le resultat.
+( c’est notre type de base nous permettant de manipler le type xml en Ocmal)
+
+```
 type expr =
 Bounds of (string * string) list
 | Tag of (string * string) list
@@ -13,23 +13,34 @@ Bounds of (string * string) list
 | Node of ((string * string) list * expr list)
 | Osm of expr list
 # exception Incorrecte
+```
 (*copy tout les tag dans un way*)
-#
+
+```
 val copy_tag : Xml.xml list -> Xml.xml list = <fun>
+```
 (*copy tout les nd dans un way*)
-#
+
+```
 val copy_nd : Xml.xml list -> Xml.xml list = <fun>
+```
 (* copy tout les bounds dans un osm*)
-#
+
+```
 val copy_bounds : Xml.xml list -> Xml.xml list = <fun>
+```
 (*copy tout les nodes dans un osm*)
-#
+
+```
 val filtrage_node : Xml.xml list -> Xml.xml list = <fun>
+```
 (*copy tout les ways dans un osm*)
-#
+```
 val filtrage_way : Xml.xml list -> Xml.xml list = <fun>#
 val filtrage_way_sans_nd : Xml.xml list -> Xml.xml list = <fun>
+```
 (*ce qui suit nous permet de traduire le osm en notre type expr *)
+```
 # val tag_of_xml : Xml.xml -> expr = <fun>
 # val nd_of_xml : Xml.xml -> expr = <fun>
 # val bounds_of_xml : Xml.xml -> expr = <fun>
@@ -38,8 +49,10 @@ val filtrage_way_sans_nd : Xml.xml list -> Xml.xml list = <fun>
 # val wayref_of_xml : Xml.xml list -> expr list = <fun>
 #
 #
+```
 val waytag_of_xml : Xml.xml list -> expr list = <fun>
 val recupere_bounds : Xml.xml -> expr list = <fun>
+  ```
 # val expr_of_xml : Xml.xml -> expr = <fun>
 # val attribut_bounds : Xml.xml -> float * float * float * float = <fun>
 #
